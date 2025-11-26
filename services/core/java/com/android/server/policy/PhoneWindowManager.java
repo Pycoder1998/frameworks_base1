@@ -258,6 +258,7 @@ import com.android.server.wm.DisplayPolicy;
 import com.android.server.wm.DisplayRotation;
 import com.android.server.wm.WindowManagerInternal;
 import com.android.server.wm.WindowManagerInternal.AppTransitionListener;
+import com.android.internal.util.ScreenshotHelper;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -1828,12 +1829,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             showGlobalActionsInternal();
         }
     };
-
-    private void handleScreenShot(@WindowManager.ScreenshotSource int source) {
-        if (!mPocketLockShowing) {
-            mDefaultDisplayPolicy.takeScreenshot(TAKE_SCREENSHOT_FULLSCREEN, source);
-        }
-    }
 
     @Override
     public void showGlobalActions() {
